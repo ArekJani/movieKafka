@@ -1,0 +1,4 @@
+confluent key : 3QTDDFG44GRPTDSS
+Secret :    cflt0m8agjBi+trIYYaZDX/akVNgBFwOhSfrIsi532fCgiK0Yd0qkaP86E15YYkQ
+
+Use this API key to connect with the cluster. Store the API key and secret below somewhere safe. This is the only time you’ll see the secret.

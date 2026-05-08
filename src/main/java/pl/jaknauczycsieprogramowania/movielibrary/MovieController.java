@@ -48,6 +48,7 @@ public class MovieController {
         Movie movie = movieRepository.getById(id);
 
         if (movie != null) {
+
             if (updatedMovie.getName() != null) movie.setName(updatedMovie.getName());
             if (updatedMovie.getRating() > 0) movie.setRating(updatedMovie.getRating());
 
