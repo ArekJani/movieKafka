@@ -1,4 +1,4 @@
-package pl.jaknauczycsieprogramowania.movielibrary;
+package com.optima.movielibrary;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

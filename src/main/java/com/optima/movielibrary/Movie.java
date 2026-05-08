@@ -1,4 +1,4 @@
-package pl.jaknauczycsieprogramowania.movielibrary;
+package com.optima.movielibrary;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

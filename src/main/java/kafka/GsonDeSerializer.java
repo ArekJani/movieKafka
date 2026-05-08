@@ -6,7 +6,6 @@ import org.apache.kafka.common.serialization.Deserializer;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.Map;
 
 public class GsonDeSerializer<T> implements Deserializer<T> {

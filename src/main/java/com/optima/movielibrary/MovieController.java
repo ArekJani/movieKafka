@@ -1,4 +1,4 @@
-package pl.jaknauczycsieprogramowania.movielibrary;
+package com.optima.movielibrary;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
