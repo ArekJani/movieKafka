@@ -8,9 +8,10 @@
 		<version>4.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>pl.jaknauczycsieprogramowania</groupId>
+	<groupId>com.optima</groupId>
 	<artifactId>movielibrary</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>movielibrary</name>
 	<description>Simple Movie Library</description>
 	<properties>

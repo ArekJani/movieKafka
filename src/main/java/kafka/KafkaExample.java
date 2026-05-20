@@ -44,20 +44,27 @@ public class KafkaExample {
         config.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, GsonSerializer.class.getName());
 
         // creates a new producer instance and sends a sample message to the topic
-        String key = "klucz";
+        String key = "kluczInnyNaInnaPartycje87686";
         KafkaItem item = new KafkaItem("Arka", 5);
         Producer<String, KafkaItem> producer = new KafkaProducer<>(config);
-        producer.send(new ProducerRecord<>(topic, key, item));
-        item.setRating(4);
+        producer.send(new ProducerRecord<>(topic, key, item));//first item sent
         System.out.printf(
                 "Produced message to topic %s: key = %s value = %s%n", topic, key, item.getName() + " " + item.getRating());
 
-        producer.send(new ProducerRecord<>(topic, key+1, item), (recordMetadata, e) -> {
+        item.setRating(4);
+        item.setName("Arka Gdynia");
+        key = "kluczInnyNaInnaPartycje876874";
+
+        System.out.printf(
+                "Produced message to topic %s: key = %s value = %s%n", topic, key, item.getName() + " " + item.getRating());
+
+        String finalKey = key;
+        producer.send(new ProducerRecord<>(topic, key, item), (recordMetadata, e) -> {
             if (e != null) {
                 System.err.printf("Failed to produce message to topic %s: %s%n", topic, e.getMessage());
             } else {
                 System.out.printf(
-                        "Produced message to topic %s: key = %s value = %s%n", topic, key, item.getName() + " " + item.getRating());
+                        "Produced message to topic %s: key = %s value = %s%n", topic, finalKey, item.getName() + " " + item.getRating());
             }
         });
         // closes the producer connection
@@ -70,7 +77,7 @@ public class KafkaExample {
         config.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         config.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
         config.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, GsonDeSerializer.class.getName());
-        config.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "true");   //TRUE-ponownie zaciaga wszystkie msg z topica, FALSE-tylko ostatnie, które nie zostały zaciągnięte
+        config.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");   //TRUE-ponownie zaciaga wszystkie msg z topica, FALSE-tylko ostatnie, które nie zostały zaciągnięte
 
         // creates a new consumer instance and subscribes to messages from the topic
         KafkaConsumer<String, KafkaItem> consumer = new KafkaConsumer<>(config);
